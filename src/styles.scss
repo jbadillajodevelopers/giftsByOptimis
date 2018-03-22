@@ -1,1 +1,61 @@
 /* You can add global styles to this file, and also import other style files */
+.navbar-nav{
+    font-family: 'Acme', sans-serif;
+    font-size: 17px;
+    color: black;
+}
+
+.navbar-nav a{
+    color: black;
+}
+
+.classMenu{
+    margin: 2%;
+}
+
+.scrollDiv{
+    margin-bottom: 5%;
+}
+
+.cardClass{
+    margin-bottom: 3%;
+}
+
+@media only screen and (max-width: 600px) {
+    .CatalogoSection1{
+        padding-top: 10%;
+        padding-bottom: 10%;
+    }
+}
+
+.catalogSection{
+    margin-top: 3%;
+}
+
+.stickyTitle{
+    padding-top: 5%;
+    position: -webkit-sticky;
+    position: sticky;
+    z-index: 3;
+    background-color: white;
+}
+.catalogoDiv{
+    padding-top: 3%;
+    padding-bottom: 3%;
+    background-color: #F5F8FC;
+}
+  
+.catalogoTitulos{
+    font-family: 'Acme', sans-serif;
+    font-size: 50px;
+    margin-bottom: 2%;
+}
+
+.catalogoSubtitulos{
+    font-family: 'Indie Flower', cursive;
+    font-size: 30px;
+}
+
+footer{
+    background-color: #fc5161;
+}

@@ -28,6 +28,8 @@ export class IndexComponent implements OnInit {
   public lenguaje : string;
   public lenguajeEsIngles : boolean = false;
   public menuItems;
+  public normalItems : any[]= [];
+  public catalogItems;
 
   mostrarPagina = false;
 
@@ -63,6 +65,7 @@ export class IndexComponent implements OnInit {
       //CONFIGURAMOS EL MENU
       this._AppService.fnItemsDelNavbar().then(
         (val)=>{
+          console.log(val);
           this.menuItems = val;
         },
         (err) => console.error(err)

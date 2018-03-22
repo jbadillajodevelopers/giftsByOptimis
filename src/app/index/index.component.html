@@ -1,20 +1,531 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to JODevelopers Template!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
-  
+<header>
+
+        <mdb-navbar id="header" SideClass="navbar navbar-expand-lg navbar-light grey lighten-5 fixed-top">
+        <logo>
+            <a routerLink="/index" class="navbar-brand" href="#">
+                <img src="../assets/images/GIFT.png" height="50" alt="">
+            </a>
+        </logo>
+        <links>
+            <ul class="navbar-nav mr-auto">
+    
+                <li class="nav-item waves-light" mdbRippleRadius>
+                    <a *ngIf="lenguajeEsIngles" class="nav-link" routerLink="/index">Home<span class="sr-only">(current)</span></a>
+                    <a *ngIf="!lenguajeEsIngles" class="nav-link" routerLink="/index">Inicio<span class="sr-only">(current)</span></a>
+                </li> 
+    
+                <li class="nav-item dropdown" dropdown>
+                    <a dropdownToggle mdbRippleRadius type="button" class="nav-link dropdown-toggle waves-light" mdbRippleRadius>
+                        <span *ngIf="lenguajeEsIngles">Catalog</span>
+                        <span *ngIf="!lenguajeEsIngles">Catálogo</span>
+                        <span class="caret"></span>
+                    </a>
+                    <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
+                        <a class="dropdown-item waves-light" routerLink="/catalogMiami" mdbRippleRadius>Miami</a>
+                        <a class="dropdown-item waves-light" routerLink="/catalogCostaRica" mdbRippleRadius>Costa Rica</a>
+                        <a class="dropdown-item waves-light" routerLink="/catalogPeru" mdbRippleRadius>Perú</a>
+                        <a class="dropdown-item waves-light" routerLink="/catalogMadrid" mdbRippleRadius>Madrid</a>
+                        <a class="dropdown-item waves-light" routerLink="/catalogPuntaCana" mdbRippleRadius>Punta Cana</a>
+                    </div>
+                </li>
+    
+                <li class="nav-item waves-light" mdbRippleRadius>
+                    <a *ngIf="lenguajeEsIngles" routerLink="/contact" class="nav-link">Contact Us<span class="sr-only">(current)</span></a>
+                    <a *ngIf="!lenguajeEsIngles" routerLink="/contact" class="nav-link">Contáctenos<span class="sr-only">(current)</span></a>
+                </li> 
+            </ul>
+    
+            <ul class="navbar-nav mr-auto">
+                <!-- Dropdown -->
+                <li class="nav-item dropdown" dropdown>
+                    <a dropdownToggle mdbRippleRadius type="button" class="nav-link dropdown-toggle waves-light" mdbRippleRadius>
+                        <span *ngIf="lenguajeEsIngles">Language</span>
+                        <span *ngIf="!lenguajeEsIngles">Lenguaje</span>
+                        <span class="caret"></span>
+                    </a>
+                    <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
+                        <a *ngIf="lenguajeEsIngles" class="dropdown-item waves-light" mdbRippleRadius (click)="fnLenguaje('ES')">Spanish</a>
+                        <a *ngIf="!lenguajeEsIngles" class="dropdown-item waves-light" mdbRippleRadius (click)="fnLenguaje('ES')">Español</a>
+                        <div class="divider dropdown-divider"></div>
+                        <a *ngIf="lenguajeEsIngles" class="dropdown-item waves-light" mdbRippleRadius (click)="fnLenguaje('EN')">English</a>
+                        <a *ngIf="!lenguajeEsIngles" class="dropdown-item waves-light" mdbRippleRadius (click)="fnLenguaje('EN')">Ingles</a>
+                    </div>
+                </li>
+            </ul>
+        </links>
+    </mdb-navbar>
+    <!-- Main -->   
+    <div class="view">
+        <div class="full-bg-img flex-center">
+            <!-- FULL IMAGE -->
+        </div>
+    </div>
+    <!-- /.Main -->
+</header>
+
+
+
+<!--Main Layout-->
+<main class="text-center py-5">
+    <!-- Section1 -->
+    <div class="container Section1">
+        <div class="row">
+            <h1 *ngIf="lenguajeEsIngles">About us</h1>
+            <h1 *ngIf="!lenguajeEsIngles">Nosotros</h1>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <p *ngIf="lenguajeEsIngles" align="justify">Gifts by Optimis is a company specialized in the design and production of souvenirs.</p>
+                <p *ngIf="!lenguajeEsIngles" aling="justify">Gifts by Optimis es una empresa especializada en el diseño y producción de souvenirs. </p>
+                <button *ngIf="lenguajeEsIngles" type="button" class="btn btn-danger waves-light" data-toggle="modal" data-target="#ourUsModal" (click)="ourUsModal.show()" mdbRippleRadius>
+                        Read more...
+                </button>
+                <button *ngIf="!lenguajeEsIngles" type="button" class="btn btn-danger waves-light" data-toggle="modal" data-target="#ourUsModal" (click)="ourUsModal.show()" mdbRippleRadius>
+                        Leer más...
+                </button>
+            </div>
+        </div>
+
+        
+            
+        <div mdbModal #ourUsModal="mdb-modal" class="modal fade" id="ourUsModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"  [config]="{overflow: auto}">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4  *ngIf="lenguajeEsIngles" class="modal-title w-100 tituloModal" id="myModalLabel">About us</h4>
+                        <h4  *ngIf="!lenguajeEsIngles" class="modal-title w-100 tituloModal" id="myModalLabel">Nosotros</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="ourUsModal.hide()">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div *ngIf="lenguajeEsIngles" class="textModal">
+                            Gifts by Optimis is a company specialized in the design and production of souvenirs.
+                            We started operations 11 years ago in Costa Rica, with a small catalog of hats. And now we have operations in five countries and more than 20 product lines, being market leaders in: key rings, magnets, hats and costume jewelery.
+                            
+                            <br>
+
+                            Gifs by Optimis is led by Luis Fernández.
+                            He is a renowned Peruvian entrepreneur who in 1999 received in his native Peru the award for "Business Creativity", awarded by the Peruvian University of Applied Sciences (UPC) in conjunction with the newspaper with the largest circulation in Peru called El Comercio, but it was in 2003 that he took Costa Rica as his new home and 3 years later he started a leading company of memories for travelers.
+                            
+                            
+                            <br>
+
+                            Our company bases its success on excellent teamwork, where: we design, produce, import and distribute the best souvenir in the market.
+                            We currently have our own commercial operations and in alliance with the main souvenir distributors in 5 countries:
+                            
+                            <br>
+
+
+                            <ul>
+                                <li>Gifts by Optimis, S.A. in Costa Rica</li>
+                                <li>Britt Shop for: Costa Rica, Curacao, Antigua and Barbuda</li>
+                                <li>Optimis R.D. in Punta Cana, Dominican Republic.</li>
+                                <li>Cuy Arts, S.A. in Peru </li>
+                                <li>Alvidart, S.A., in Madrid, Spain</li>
+                                <li>Optimis Miami, LLC in the United States for: Florida and the Caribbean</li>
+                                    
+                            </ul>
+
+                            <br>
+
+                            In 2018 we introduce a new product line "Super Heroes of Costa Rica", based on 4 characters that motivate the care of the environment.
+
+                            <br>
+                            
+                            We invite you to learn more about our products and news through our social networks.
+
+                            <br>
+                        </div>
+
+                        <div *ngIf="!lenguajeEsIngles" class="textModal">
+                            Gifts by Optimis es una empresa especializada en el diseño y producción de souvenirs. 
+                            Iniciamos operaciones hace 11 anos en Costa Rica ,con un pequeño catálogo de gorras.
+                            Actualmente tenemos operaciones en cinco países y contamos con más de 20  lineas de productos, siendo líderes del mercado en : Llaveros , Magnetos,Gorras y Bisuteria.
+                            
+                            <br>
+
+                            Gifs by Optimis es una empresa creada el ano 2006 por, Luis Fernandez, empresario Peruano reconocido con el premio a la “CREATIVIDAD EMPRESARIAL 1999”	
+                            quien encuentra un nicho  en el mercado  turístico de Costa Rica .
+                            
+                            <br>
+
+                            Nuestra empresa basa su éxito en el excelente trabajo en equipo, donde: diseñamos, producimos, importamos y distribuimos el mejor souvenir del mercado.   
+                            
+                            <br>
+
+                            Actualmente tenemos operaciones comerciales propias y en alianza con los principales distribuidores de souvenirs en 5 países:
+
+                            <ul>
+                                <li>Gifts by Optimis, S.A. en  Costa Rica</li>
+                                <li>Britt Shop para: Costa Rica ,Curazao, Antigua y Barbuda</li>
+                                <li>Optimis R.D. en Punta Cana, República Dominicana.</li>
+                                <li>Cuy Arts, S.A. en Perú </li>
+                                <li>Alvidart, S.A., en Madrid, España</li>
+                                <li>Optimis Miami, LLC en  Estados Unidos para:La Florida y El Caribe.</li>
+                            </ul>
+
+                            <br>
+
+                            Para el 2018 creamoos una nueva linea de productos los" SUPER HEROES DE COSTA RICA”
+                            basada en 4 personajes que motivaran al cuidado del medio ambiente.
+
+                            <br>
+                            
+                            Sin mas los invitamos a conocer nuestros productos y novedades a través de nuestras redes sociales. 
+
+                            <br>
+                        </div>
+                            
+                    </div>
+                    <div class="modal-footer">
+                        <button *ngIf="lenguajeEsIngles" type="button" class="btn btn-danger btn-sm waves-light" data-dismiss="modal" (click)="ourUsModal.hide()" mdbRippleRadius>Close</button>
+                        <button *ngIf="!lenguajeEsIngles" type="button" class="btn btn-danger btn-sm waves-light" data-dismiss="modal" (click)="ourUsModal.hide()" mdbRippleRadius>Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+                    
+    </div>
+    <!-- ./Section1 -->
+    <!-- Anuncios 1 -->
+    <div class="anuncios">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="../../assets/images/SUPERHEROES1.png" height="120">
+                </div>
+                <div class="col-md-8">
+                    <div *ngIf="lenguajeEsIngles" class="anuncioTxt">
+                        <h3>These are characters created to educate and motivate children to take care of the environment.</h3>
+                        <p>Available from April 2018.</p>
+                    </div>
+                    <div *ngIf="!lenguajeEsIngles" class="anuncioTxt">
+                        <h3>Diseñamos novedosos y divertidos souvenirs.</h3>
+                        <p>Disponibles apartir del 18 de Abril.</p>
+                    </div>
+                    <div class="anuncioTxt">
+                        <a *ngIf="!lenguajeEsIngles" href="http://fundacionsuperheroesdecostarica.com/" class="btn btn-default">Ir a sitio</a>
+                        <a *ngIf="lenguajeEsIngles" href="http://fundacionsuperheroesdecostarica.com/" class="btn btn-default">Go to the site</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ./Anuncios 1 -->
+
+    <!--Section: Products v.4-->
+    <section class="section pb-3 container">
+        <!--Section heading-->
+        <h1 *ngIf="lenguajeEsIngles" class="section-heading h1 pt-4">Products</h1>
+        <h1 *ngIf="!lenguajeEsIngles" class="section-heading h1 pt-4">Productos</h1>
+
+        <!--First row-->
+        <div class="row">
+    
+            <!--First column-->
+            <div class="col-lg-3 col-md-6 mb-r">
+    
+                <!--Collection card-->
+                <div class="card collection-card z-depth-1-half">
+                    <!--Card image-->
+                    <div class="view  hm-zoom">
+                        <img src="../../assets/images/productPulsera.jpg" class="img-fluid" alt="">
+                        <div class="stripe dark">
+                            <a>
+                                <p *ngIf="lenguajeEsIngles">Bracelets <i class="fa fa-chevron-right"></i></p>
+                                <p *ngIf="!lenguajeEsIngles">Pulseras <i class="fa fa-chevron-right"></i></p>
+                            </a>
+                        </div>
+                    </div>
+                    <!--/.Card image-->
+                </div>
+                <!--/.Collection card-->
+    
+            </div>
+            <!--/First column-->
+    
+            <!--Second column-->
+            <div class="col-lg-3 col-md-6 mb-r">
+    
+                <!--Collection card-->
+                <div class="card collection-card z-depth-1-half">
+                    <!--Card image-->
+                    <div class="view  hm-zoom">
+                        <img src="../../assets/images/productGorra.jpg" class="img-fluid" alt="">
+                        <div class="stripe light">
+                            <a>
+                                <p *ngIf="lenguajeEsIngles">Caps <i class="fa fa-chevron-right"></i></p>
+                                <p *ngIf="!lenguajeEsIngles">Gorras <i class="fa fa-chevron-right"></i></p>
+                            </a>
+                        </div>
+                    </div>
+                    <!--/.Card image-->
+                </div>
+                <!--/.Collection card-->
+    
+            </div>
+            <!--/Second column-->
+    
+            <!--Third column-->
+            <div class="col-lg-3 col-md-6 mb-r">
+    
+                <!--Collection card-->
+                <div class="card collection-card z-depth-1-half">
+                    <!--Card image-->
+                    <div class="view  hm-zoom">
+                        <img src="../../assets/images/productLlaveros.jpg" class="img-fluid" alt="">
+                        <div class="stripe dark">
+                            <a>
+                                <p *ngIf="lenguajeEsIngles">Keychains <i class="fa fa-chevron-right"></i></p>
+                                <p *ngIf="!lenguajeEsIngles">Llaveros <i class="fa fa-chevron-right"></i></p>
+                            </a>
+                        </div>
+                    </div>
+                    <!--/.Card image-->
+                </div>
+                <!--/.Collection card-->
+    
+            </div>
+            <!--/Third column-->
+    
+            <!--Fourth column-->
+            <div class="col-lg-3 col-md-6 mb-r">
+    
+                <!--Collection card-->
+                <div class="card collection-card z-depth-1-half">
+                    <!--Card image-->
+                    <div class="view  hm-zoom">
+                        <img src="../../assets/images/productSouvenirs.jpg" class="img-fluid" alt="">
+                        <div class="stripe light">
+                            <a>
+                                <p>Souvenirs <i class="fa fa-chevron-right"></i></p>
+                            </a>
+                        </div>
+                    </div>
+                    <!--/.Card image-->
+                </div>
+                <!--/.Collection card-->
+    
+            </div>
+            <!--/Fourth column-->
+            
+    
+        </div>
+        <!--/First row-->
+    </section>
+    <!--Section: Products v.4-->
+
+    <!-- Anuncios 2 -->
+	<div class="anuncios">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <div *ngIf="lenguajeEsIngles" class="anuncioTxt">
+                        <h3>Caps designed for outdoor work.</h3>
+                        <p>Dry Fit material fresh and quick-drying fabric.</p>
+                    </div>
+                    <div *ngIf="!lenguajeEsIngles" class="anuncioTxt">
+                        <h3>Gorras diseñadas para el trabajo en exteriores.</h3>
+                        <p>Confeccionadas con material Dry Fit, tela fresca y de rápido secado.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <img src="../../assets/images/SUN BLOCK.JPG" height="120">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ./Anuncios 2 -->
+
+    <!--Section: Products v.5-->
+    <section class="section pb-3 container">
+        <!--Section heading-->
+        <h1 *ngIf="lenguajeEsIngles" class="section-heading h1 pt-4">Best Sellers</h1>
+        <h1 *ngIf="!lenguajeEsIngles" class="section-heading h1 pt-4">Productos Destacados</h1>
+
+        <!--Carousel Wrapper-->
+        <mdb-carousel class="carousel-multi-item multi-animation" [animation]="'slide'" [type]="'carousel-multi-item'">
+            <!--First slide-->
+            <mdb-slide>
+                <div class="col-md-4 clearfix d-none d-md-block">
+    
+                    <!--Card-->
+                    <div class="card card-cascade narrower">
+    
+                        <!--Card image-->
+                        <div class="view overlay hm-white-slight">
+                            <img src="../../assets/images/bestSellers/bestSeller1.jpg" class="img-fluid" alt="">
+                            <a>
+                                <div class="mask waves-effect waves-light" mdbRippleRadius></div>
+                            </a>
+                        </div>
+                        <!--/.Card image-->
+    
+                        <!--Card content-->
+                        <div class="card-body text-center">
+                            <!--Category & Title-->
+                            <a href="" class="text-muted">
+                                <h5 *ngIf="lenguajeEsIngles">Keychain</h5>
+                                <h5 *ngIf="!lenguajeEsIngles">Llavero</h5>
+                            </a>
+                            <h4 *ngIf="lenguajeEsIngles" class="card-title"><strong><a href="">Motorcycle - Madrid</a></strong></h4>
+                            <h4 *ngIf="!lenguajeEsIngles" class="card-title"><strong><a href="">Motocicleta - Madrid</a></strong></h4>
+    
+                        </div>
+                        <!--/.Card content-->
+    
+                    </div>
+                    <!--/.Card-->
+    
+                </div>
+
+                <div class="col-md-4 clearfix d-none d-md-block">
+                        
+                    <!--Card-->
+                    <div class="card card-cascade narrower">
+    
+                        <!--Card image-->
+                        <div class="view overlay hm-white-slight">
+                            <img src="../../assets/images/bestSellers/bestSeller2.jpg" class="img-fluid" alt="">
+                            <a>
+                                <div class="mask waves-effect waves-light" mdbRippleRadius></div>
+                            </a>
+                        </div>
+                        <!--/.Card image-->
+    
+                        <!--Card content-->
+                        <div class="card-body text-center">
+                            <!--Category & Title-->
+                            <a href="" class="text-muted">
+                                <h5 *ngIf="lenguajeEsIngles">Cap</h5>
+                                <h5 *ngIf="!lenguajeEsIngles">Gorra</h5>
+                            </a>
+                            <h4 *ngIf="lenguajeEsIngles" class="card-title"><strong><a href="">Cap - Surf</a></strong></h4>
+                            <h4 *ngIf="!lenguajeEsIngles" class="card-title"><strong><a href="">Gorra - Surf</a></strong></h4>
+    
+                        </div>
+                        <!--/.Card content-->
+    
+                    </div>
+                    <!--/.Card-->
+    
+                </div>
+
+                <div class="col-md-4 clearfix d-none d-md-block">
+                        
+                    <!--Card-->
+                    <div class="card card-cascade narrower">
+    
+                        <!--Card image-->
+                        <div class="view overlay hm-white-slight">
+                            <img src="../../assets/images/bestSellers/bestSeller3.jpg" class="img-fluid" alt="">
+                            <a>
+                                <div class="mask waves-effect waves-light" mdbRippleRadius></div>
+                            </a>
+                        </div>
+                        <!--/.Card image-->
+    
+                        <!--Card content-->
+                        <div class="card-body text-center">
+                            <!--Category & Title-->
+                            <a href="" class="text-muted">
+                                <h5 *ngIf="lenguajeEsIngles">Can Cooler</h5>
+                                <h5 *ngIf="!lenguajeEsIngles">Enfriadores</h5>
+                            </a>
+                            <h4 class="card-title"><strong><a href="">Costa Rica</a></strong></h4>
+    
+                        </div>
+                        <!--/.Card content-->
+    
+                    </div>
+                    <!--/.Card-->
+    
+                </div>
+            </mdb-slide>
+
+        </mdb-carousel>
+        <!--/.Carousel Wrapper-->
+    </section>
+    <!--Section: Products v.5-->
+</main>
+<!--Main Layout-->  
+
+<!--Footer-->
+<footer class="page-footer center-on-small-only">
+        
+    <!--Footer Links-->
+    <div class="container">
+        <div class="row">
+
+            <!--First column-->
+            <div class="col-md-4 offset-md-1">
+                <h5 *ngIf="lenguajeEsIngles" class="title">About Us</h5>
+                <h5 *ngIf="!lenguajeEsIngles" class="title">Nosotros</h5>
+                <p *ngIf="lenguajeEsIngles">Our company bases its success on excellent teamwork, where: we design, produce, import and distribute the best souvenir in the market.</p>
+                <p *ngIf="!lenguajeEsIngles">Nuestra empresa basa su éxito en el excelente trabajo en equipo, donde: diseñamos, producimos, importamos y distribuimos el mejor souvenir del mercado.</p>
+            </div>
+            <!--/.First column-->
+
+            <hr class="hidden-md-up">
+
+            <!--Second column-->
+            <div class="col-md-3 offset-md-1">
+                <h5 class="title">Links</h5>
+                <ul>
+                    <li >
+                        <a *ngIf="lenguajeEsIngles"  routerLink="/index">Home<span class="sr-only">(current)</span></a>
+                        <a *ngIf="!lenguajeEsIngles" routerLink="/index">Inicio<span class="sr-only">(current)</span></a>
+                    </li> 
+                    <li>
+                        <a *ngIf="lenguajeEsIngles" routerLink="/contact" >Contact Us<span class="sr-only">(current)</span></a>
+                        <a *ngIf="!lenguajeEsIngles" routerLink="/contact" >Contáctenos<span class="sr-only">(current)</span></a>
+                    </li> 
+                </ul>
+            </div>
+            <!--/.Second column-->
+
+            <hr class="hidden-md-up">
+
+            <!--Third column-->
+            <div class="col-md-3">
+                <h5 *ngIf="lenguajeEsIngles" class="title">Contact</h5>
+                <h5 *ngIf="!lenguajeEsIngles" class="title">Contáctenos</h5>
+                <ul>
+                    <li><i class="fa fa-envelope" aria-hidden="true"></i>  exports@giftsbyoptimis.com</li>
+                    <li><i class="fa fa-whatsapp" aria-hidden="true"></i>  +(506) 8718 - 38 30</li>
+                </ul>
+            </div>
+            <!--/.Third column-->
+
+        </div>
+    </div>
+    <!--/.Footer Links-->
+
+    <hr>
+
+    <!--Social buttons-->
+    <div class="text-center mb-3">
+        <a href="https://www.facebook.com/OptimisSouvenirs/" class="btn-floating btn-small btn-fb waves-light" mdbRippleRadius><i class="fa fa-facebook"> </i></a>
+    </div>
+    <!--/.Social buttons-->
+
+    <!--Copyright-->
+    <div class="footer-copyright">
+        <div class="container-fluid">
+            <span *ngIf="lenguajeEsIngles">
+                © Copyright 2018 Gifts By Optimis.   Web site created by <a href="http://jodevelopers.com/">Jodevelopers</a>
+            </span>
+
+            <span *ngIf="!lenguajeEsIngles">
+                © Copyright 2018 Gifts By Optimis.   Sitio web desarrollado por <a href="http://jodevelopers.com/">Jodevelopers</a>
+            </span>
+            
+        </div>
+    </div>
+    <!--/.Copyright-->
+
+</footer>
+<!--/.Footer-->

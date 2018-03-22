@@ -1,0 +1,277 @@
+<!--Navbar-->
+<mdb-navbar id="header" SideClass="navbar navbar-expand-lg navbar-light grey lighten-5 fixed-top">
+    
+  <!-- Navbar brand -->
+  <logo>
+      <a routerLink="/index" class="navbar-brand" href="#">
+          <img src="../assets/images/GIFT.png" height="50" alt="">
+      </a>
+  </logo>
+
+  <links>
+    <ul class="navbar-nav mr-auto">
+
+        <li class="nav-item waves-light" mdbRippleRadius>
+            <a *ngIf="lenguajeEsIngles" class="nav-link" routerLink="/index">Home<span class="sr-only">(current)</span></a>
+            <a *ngIf="!lenguajeEsIngles" class="nav-link" routerLink="/index">Inicio<span class="sr-only">(current)</span></a>
+        </li> 
+
+        <li class="nav-item dropdown" dropdown>
+            <a dropdownToggle mdbRippleRadius type="button" class="nav-link dropdown-toggle waves-light" mdbRippleRadius>
+                <span *ngIf="lenguajeEsIngles">Catalog</span>
+                <span *ngIf="!lenguajeEsIngles">Catálogo</span>
+                <span class="caret"></span>
+            </a>
+            <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
+                <a class="dropdown-item waves-light" routerLink="/catalogMiami" mdbRippleRadius>Miami</a>
+                <a class="dropdown-item waves-light" routerLink="/catalogCostaRica" mdbRippleRadius>Costa Rica</a>
+                <a class="dropdown-item waves-light" routerLink="/catalogPeru" mdbRippleRadius>Perú</a>
+                <a class="dropdown-item waves-light" routerLink="/catalogMadrid" mdbRippleRadius>Madrid</a>
+                <a class="dropdown-item waves-light" routerLink="/catalogPuntaCana" mdbRippleRadius>Punta Cana</a>
+            </div>
+        </li>
+
+        <li class="nav-item waves-light" mdbRippleRadius>
+            <a *ngIf="lenguajeEsIngles" routerLink="/contact" class="nav-link">Contact Us<span class="sr-only">(current)</span></a>
+            <a *ngIf="!lenguajeEsIngles" routerLink="/contact" class="nav-link">Contáctenos<span class="sr-only">(current)</span></a>
+        </li> 
+    </ul>
+
+    <ul class="navbar-nav mr-auto">
+        <!-- Dropdown -->
+        <li class="nav-item dropdown" dropdown>
+            <a dropdownToggle mdbRippleRadius type="button" class="nav-link dropdown-toggle waves-light" mdbRippleRadius>
+                <span *ngIf="lenguajeEsIngles">Language</span>
+                <span *ngIf="!lenguajeEsIngles">Lenguaje</span>
+                <span class="caret"></span>
+            </a>
+            <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
+                <a *ngIf="lenguajeEsIngles" class="dropdown-item waves-light" mdbRippleRadius (click)="fnLenguaje('ES')">Spanish</a>
+                <a *ngIf="!lenguajeEsIngles" class="dropdown-item waves-light" mdbRippleRadius (click)="fnLenguaje('ES')">Español</a>
+                <div class="divider dropdown-divider"></div>
+                <a *ngIf="lenguajeEsIngles" class="dropdown-item waves-light" mdbRippleRadius (click)="fnLenguaje('EN')">English</a>
+                <a *ngIf="!lenguajeEsIngles" class="dropdown-item waves-light" mdbRippleRadius (click)="fnLenguaje('EN')">Ingles</a>
+            </div>
+        </li>
+    </ul>
+  </links>
+</mdb-navbar>
+<!--/.Navbar-->
+    
+    
+    
+<!--Main Layout-->
+<main class="text-center py-5">
+  <!-- Catalogo Section 1 -->
+	<div class="container-fluid CatalogoSection1">
+      <div class="container">
+  
+        <div class="row">
+          <h1 *ngIf="lenguajeEsIngles" class="catalogoTitulos">Catalog - Miami</h1>
+          <h1 *ngIf="!lenguajeEsIngles" class="catalogoTitulos">Catálogo - Miami</h1>
+        </div>
+        <div class="row">
+          <p *ngIf="lenguajeEsIngles" class="catalogoSubtitulos">Optimis Miami, LLC USA</p>
+          <p *ngIf="!lenguajeEsIngles" class="catalogoSubtitulos">Optimis Miami, LLC Estados Unidos</p>
+        </div>
+  
+      </div>	
+  </div>
+
+
+  <div class="row">
+    <div id="scrollLlaveros" class="scrollDiv"></div>
+
+    <div class="col-md-3 col-sm-12 classMenu">
+        <div class="list-group">
+            <a *ngIf="lenguajeEsIngles" mdbPageScroll href="#scrollLlaveros"  class="list-group-item active">Menu</a>
+            <a *ngIf="!lenguajeEsIngles" mdbPageScroll href="#scrollLlaveros" class="list-group-item active">Menú</a>
+            <a *ngIf="lenguajeEsIngles" mdbPageScroll href="#scrollLlaveros"  class="list-group-item">Keychain</a>
+            <a *ngIf="!lenguajeEsIngles" mdbPageScroll href="#scrollLlaveros" class="list-group-item">Llaveros</a>
+            <a *ngIf="lenguajeEsIngles" mdbPageScroll href="#scrollDijes" class="list-group-item">Charms</a>
+            <a *ngIf="!lenguajeEsIngles" mdbPageScroll href="#scrollDijes" class="list-group-item">Dijes</a>
+        </div>
+    </div>
+
+    <div class="col-md-8 col-sm-12">
+        
+        <div class="catalogSection">
+          <div class="stickyTitle" mdbSticky sticky-after="#header"> 
+            <h1 *ngIf="lenguajeEsIngles">Keychain</h1>
+            <h1 *ngIf="!lenguajeEsIngles">Llaveros</h1>  
+          </div>
+          
+
+          <hr>
+          <div class="row">
+
+            <div class="col-md-3 col-sm-6 cardClass" *ngFor="let x of keychainList">
+              <!--Card-->
+              <div class="card">
+                  
+                <!--Card image-->
+                <div>
+                    <img src="{{x.imageUrl}}" class="mx-auto d-block" height="200" alt="">
+                </div>
+                <!--/.Card image-->
+            
+                <!--Button-->
+                <a class="btn-floating btn-action default-color" mdbRippleRadius (click)="fnShowImage(x)"><i class="fa fa-search-plus"></i></a>
+            
+                <!--Card content-->
+                <div class="card-body default-color">
+                    <!--Text-->
+                    <p class="card-text" style="color:white;">{{x.code}}</p>
+                </div>
+                <!--/.Card content-->
+            
+              </div>
+              <!--Card-->
+            </div>
+
+          </div>
+          <div id="scrollDijes" class="scrollDiv"></div>
+        </div>
+
+        <div class="catalogSection">
+          <div class="stickyTitle" mdbSticky sticky-after="#header"> 
+            <h1 *ngIf="lenguajeEsIngles">Charms</h1>
+            <h1 *ngIf="!lenguajeEsIngles">Dijes</h1>  
+          </div>
+          
+
+          <hr>
+          <div class="row">
+
+            <div class="col-md-3 col-sm-6 cardClass" *ngFor="let x of charmsList">
+              <!--Card-->
+              <div class="card">
+                  
+                <!--Card image-->
+                <div>
+                    <img src="{{x.imageUrl}}" class="mx-auto d-block" height="200" alt="">
+                </div>
+                <!--/.Card image-->
+            
+                <!--Button-->
+                <a class="btn-floating btn-action default-color" mdbRippleRadius (click)="fnShowImage(x)"><i class="fa fa-search-plus"></i></a>
+            
+                <!--Card content-->
+                <div class="card-body default-color">
+                    <!--Text-->
+                    <p class="card-text" style="color:white;">{{x.code}}</p>
+                </div>
+                <!--/.Card content-->
+            
+              </div>
+              <!--Card-->
+            </div>
+
+          </div>
+          
+        </div>
+    </div>
+
+  </div>
+    
+</main>
+<!--Main Layout-->  
+
+
+<div mdbModal #showImageModal="mdb-modal" class="modal fade" id="basicExample" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title w-100" id="myModalLabel">Gifts By Optimis</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="showImageModal.hide()">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <img src="{{showImageModalImageUrl}}" class="img-fluid mx-auto d-block" alt="">
+            </div>
+            <div class="modal-footer">
+                <button *ngIf="lenguajeEsIngles" type="button" class="btn btn-danger btn-sm waves-light" data-dismiss="modal" (click)="showImageModal.hide()" mdbRippleRadius>Close</button>
+                <button *ngIf="!lenguajeEsIngles" type="button" class="btn btn-danger btn-sm waves-light" data-dismiss="modal" (click)="showImageModal.hide()" mdbRippleRadius>Cerrar</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Footer-->
+<footer class="page-footer center-on-small-only">
+        
+    <!--Footer Links-->
+    <div class="container">
+        <div class="row">
+
+            <!--First column-->
+            <div class="col-md-4 offset-md-1">
+                <h5 *ngIf="lenguajeEsIngles" class="title">About Us</h5>
+                <h5 *ngIf="!lenguajeEsIngles" class="title">Nosotros</h5>
+                <p *ngIf="lenguajeEsIngles">Our company bases its success on excellent teamwork, where: we design, produce, import and distribute the best souvenir in the market.</p>
+                <p *ngIf="!lenguajeEsIngles">Nuestra empresa basa su éxito en el excelente trabajo en equipo, donde: diseñamos, producimos, importamos y distribuimos el mejor souvenir del mercado.</p>
+            </div>
+            <!--/.First column-->
+
+            <hr class="hidden-md-up">
+
+            <!--Second column-->
+            <div class="col-md-3 offset-md-1">
+                <h5 class="title">Links</h5>
+                <ul>
+                    <li >
+                        <a *ngIf="lenguajeEsIngles"  routerLink="/index">Home<span class="sr-only">(current)</span></a>
+                        <a *ngIf="!lenguajeEsIngles" routerLink="/index">Inicio<span class="sr-only">(current)</span></a>
+                    </li> 
+                    <li>
+                        <a *ngIf="lenguajeEsIngles" routerLink="/contact" >Contact Us<span class="sr-only">(current)</span></a>
+                        <a *ngIf="!lenguajeEsIngles" routerLink="/contact" >Contáctenos<span class="sr-only">(current)</span></a>
+                    </li> 
+                </ul>
+            </div>
+            <!--/.Second column-->
+
+            <hr class="hidden-md-up">
+
+            <!--Third column-->
+            <div class="col-md-3">
+                <h5 *ngIf="lenguajeEsIngles" class="title">Contact</h5>
+                <h5 *ngIf="!lenguajeEsIngles" class="title">Contáctenos</h5>
+                <ul>
+                    <li><i class="fa fa-envelope" aria-hidden="true"></i>  exports@giftsbyoptimis.com</li>
+                    <li><i class="fa fa-whatsapp" aria-hidden="true"></i>  +(506) 8718 - 38 30</li>
+                </ul>
+            </div>
+            <!--/.Third column-->
+
+        </div>
+    </div>
+    <!--/.Footer Links-->
+
+    <hr>
+
+    <!--Social buttons-->
+    <div class="text-center mb-3">
+        <a href="https://www.facebook.com/OptimisSouvenirs/" class="btn-floating btn-small btn-fb waves-light" mdbRippleRadius><i class="fa fa-facebook"> </i></a>
+    </div>
+    <!--/.Social buttons-->
+
+    <!--Copyright-->
+    <div class="footer-copyright">
+        <div class="container-fluid">
+            <span *ngIf="lenguajeEsIngles">
+                © Copyright 2018 Gifts By Optimis.   Web site created by <a href="http://jodevelopers.com/">Jodevelopers</a>
+            </span>
+
+            <span *ngIf="!lenguajeEsIngles">
+                © Copyright 2018 Gifts By Optimis.   Sitio web desarrollado por <a href="http://jodevelopers.com/">Jodevelopers</a>
+            </span>
+            
+        </div>
+    </div>
+    <!--/.Copyright-->
+
+</footer>
+<!--/.Footer-->

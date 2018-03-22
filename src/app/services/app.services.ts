@@ -18,26 +18,26 @@ fnLenguaje(lenguaje : string){
 
     var promise = new Promise((resolve, reject) => {
         //PASO #1 -> OBTENER LENGUAJE
-        var lenguajeAlmacenado = localStorage.getItem('infinityLanguage');
+        var lenguajeAlmacenado = localStorage.getItem('giftsByOptimisLanguage');
         //PASO #2 -> VALIDAR QUE EL LENGUAJE ALMACENADO NO ESTE VACIO
         if(lenguajeAlmacenado == 'undefined' || lenguajeAlmacenado == null){
             if(lenguaje == "" || lenguaje == undefined){
                 lenguaje = "ES";
-                localStorage.setItem('infinityLanguage', lenguaje);
+                localStorage.setItem('giftsByOptimisLanguage', lenguaje);
             }else{
-                localStorage.setItem('infinityLanguage', lenguaje);
+                localStorage.setItem('giftsByOptimisLanguage', lenguaje);
             } 
         }else{
             if(lenguaje == "" || lenguaje == undefined){
                 //NA
             }else{
                 if(lenguajeAlmacenado != lenguaje){
-                    localStorage.setItem('infinityLanguage', lenguaje); 
+                    localStorage.setItem('giftsByOptimisLanguage', lenguaje); 
                 }
             }
             
         }
-        lenguaje = localStorage.getItem('infinityLanguage');
+        lenguaje = localStorage.getItem('giftsByOptimisLanguage');
         resolve(lenguaje);
     });
 
@@ -49,8 +49,15 @@ fnItemsDelNavbar(){
     
     var promise = new Promise((resolve, reject) => {
         var items = [
-            {itemES: "Casas", itemEN: "Homes", url: "/homes"},
-            {itemES: "Casas de lujo", itemEN: "Luxury Homes", url: "/luxury"},
+            {itemES: "Inicio", itemEN: "Home", url: "/index"},
+            /*
+            {itemES: "Catálogo", itemEN: "Catalog", url: "/luxury" ,catalogItems: [
+                { name: 'Miami', url: "catalogMiami"},
+                { name: 'Costa Rica', url: "catalogCostaRica"},
+                { name: 'Perú', url: "catalogPeru"},
+                { name: 'Madrid', url: "catalogMadrid"},
+                { name: 'Punta Cana', url: "catalogPuntaCana"}]},
+                */
             {itemES: "Contáctenos", itemEN: "Contact Us", url: "/contact"}
         ]
         resolve(items);
@@ -58,6 +65,16 @@ fnItemsDelNavbar(){
     return promise;
 }// --> ./fnItemsDelNavbar
 
+fnGetBestSellers(){
+    var promise = new Promise((resolve, reject) => {
+        var items = [
+            {imageUrl: "../../assets/images/bestSellers/bestSeller1.jpg", familyEN: "Keychain", familyES: "Llavero", nameEN: "Madrid keychain", nameES: "Llavero de Madrid"},
+            {imageUrl: "../../assets/images/bestSellers/bestSeller2.jpg", familyEN: "Cap", familyES: "Gorra", nameEN: "Surf Cap", nameES: "Gorra de Surf"},
+        ]
+        resolve(items);
+    });
+    return promise;
+}
 
 /*
 exampleGET(){
@@ -80,7 +97,6 @@ examplePOST(code: string){
     return this._http.post(route, params, {headers : headers}).map(res => res.json()); 
 }
 */
-
 
 fnElCampoEstaVacio(data){
     
@@ -106,13 +122,17 @@ fnFormatoDeCorreoCorrecto(emailField){
 
 
 fnSendEmail(name: string, phone: string, email: string, message : string){
-    var route = GLOBAL.url+'sendSingleEmail';
+    var route = GLOBAL.urlEmail+'sendSingleEmail';
     var params = JSON.stringify({
-        'name' : name,
-        'phone' : phone,
-        'email' : email, 
-        'message' : message
+        'dataClientTo' : 'info@giftsbyoptimis.com',
+        'dataClientFrom' : 'noreplay@giftsbyoptimis.com',
+        'dataClientSubject' : "Nuevo mensaje enviado desde el sitio web.",
+        'dataReceivedName' : name,
+        'dataReceivedPhone' : phone,
+        'dataReceivedEmail' : email, 
+        'dataReceivedMessage' : message
     });
+    console.log(params);
     let headers = new Headers({
         'Content-Type' : 'application/json'
     });

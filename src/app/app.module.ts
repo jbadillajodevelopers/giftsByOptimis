@@ -22,12 +22,28 @@ import { MDBSpinningPreloader } from 'ng-mdb-pro';
 
 import { AppComponent } from './app.component';
 import { IndexComponent } from './index/index.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { FooterComponent } from './footer/footer.component';
+import { CatalogMiamiComponent } from './catalog-miami/catalog-miami.component';
+import { CatalogCostaRicaComponent } from './catalog-costa-rica/catalog-costa-rica.component';
+import { CatalogPeruComponent } from './catalog-peru/catalog-peru.component';
+import { CatalogMadridComponent } from './catalog-madrid/catalog-madrid.component';
+import { CatalogPuntaCanaComponent } from './catalog-punta-cana/catalog-punta-cana.component';
+import { ContactComponent } from './contact/contact.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     IndexComponent,
+    NavbarComponent,
+    FooterComponent,
+    CatalogMiamiComponent,
+    CatalogCostaRicaComponent,
+    CatalogPeruComponent,
+    CatalogMadridComponent,
+    CatalogPuntaCanaComponent,
+    ContactComponent,
   ],
   imports: [
     BrowserModule,
