@@ -300,7 +300,8 @@
                         <img src="../../assets/images/productSouvenirs.jpg" class="img-fluid" alt="">
                         <div class="stripe light">
                             <a>
-                                <p>Souvenirs <i class="fa fa-chevron-right"></i></p>
+                                <p *ngIf="lenguajeEsIngles">Magnetics <i class="fa fa-chevron-right"></i></p>
+                                <p *ngIf="!lenguajeEsIngles">Magnetos <i class="fa fa-chevron-right"></i></p>
                             </a>
                         </div>
                     </div>
@@ -403,8 +404,8 @@
                                 <h5 *ngIf="lenguajeEsIngles">Cap</h5>
                                 <h5 *ngIf="!lenguajeEsIngles">Gorra</h5>
                             </a>
-                            <h4 *ngIf="lenguajeEsIngles" class="card-title"><strong><a href="">Cap - Surf</a></strong></h4>
-                            <h4 *ngIf="!lenguajeEsIngles" class="card-title"><strong><a href="">Gorra - Surf</a></strong></h4>
+                            <h4 *ngIf="lenguajeEsIngles" class="card-title"><strong><a href="">Cap</a></strong></h4>
+                            <h4 *ngIf="!lenguajeEsIngles" class="card-title"><strong><a href="">Gorra</a></strong></h4>
     
                         </div>
                         <!--/.Card content-->

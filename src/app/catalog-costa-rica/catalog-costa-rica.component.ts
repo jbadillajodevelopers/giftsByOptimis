@@ -80,7 +80,16 @@ export class CatalogCostaRicaComponent implements OnInit {
       {imageUrl: "../../assets/images/catalogoCR/Gorras/Surf/GE-14.png", code:"GE-14"},
       {imageUrl: "../../assets/images/catalogoCR/Gorras/Surf/GE-69.png", code:"GE-69"},
       {imageUrl: "../../assets/images/catalogoCR/Gorras/Surf/GE-69B.png", code:"GE-69B"},
-      {imageUrl: "../../assets/images/catalogoCR/Gorras/Surf/GE-70.png", code:"GE-70"}
+      {imageUrl: "../../assets/images/catalogoCR/Gorras/Surf/GE-70.png", code:"GE-70"},
+
+      {imageUrl: "../../assets/images/catalogoCR/Gorras/last/GE-82.png", code:"GE-82"},
+      {imageUrl: "../../assets/images/catalogoCR/Gorras/last/GE-83.png", code:"GE-83"},
+      {imageUrl: "../../assets/images/catalogoCR/Gorras/last/GE-84.png", code:"GE-84"},
+      {imageUrl: "../../assets/images/catalogoCR/Gorras/last/GE-85.png", code:"GE-85"},
+      {imageUrl: "../../assets/images/catalogoCR/Gorras/last/GE-86.png", code:"GE-86"},
+      {imageUrl: "../../assets/images/catalogoCR/Gorras/last/GE-88.png", code:"GE-88"},
+      {imageUrl: "../../assets/images/catalogoCR/Gorras/last/GE-91.png", code:"GE-91"},
+      {imageUrl: "../../assets/images/catalogoCR/Gorras/last/GE-92.png", code:"GE-92"}
     ]
 
     this.magneticPencilsList = [
